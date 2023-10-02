@@ -16,6 +16,4 @@ public interface ProductService {
 
     public String deleteProduct(Long productId);
 
-    public String getProductInCategory(Long categoryId);
-
 }

@@ -6,11 +6,12 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/products")
-public class ProductController implements ProductService {
+public class ProductController {
 
     private ProductService productService;
 
     public ProductController(ProductService productService){
+
         this.productService = productService;
     }
 
@@ -27,23 +28,20 @@ public class ProductController implements ProductService {
 
     @PostMapping()
     public String addNewProduct(@RequestBody ProductDto productDto){
-        return "add new products :" + productDto;
+
+        return "add new products : " + productDto;
     }
 
     @PutMapping("/{productId}")
     public String updateProduct(@PathVariable("productId") Long productId){
+
         return "update product :" + productId;
     }
 
     @DeleteMapping("/{productId}")
     public String deleteProduct(@PathVariable("productId") Long productId){
+
         return "Deleting a prod :" + productId;
-    }
-
-
-    @GetMapping("/catagories/{catagoryId}")
-    public String getProductInCategory(@PathVariable("catagoryId") Long catagoryId){
-        return "Getting product in catagoryid :"+ catagoryId;
     }
 
 
